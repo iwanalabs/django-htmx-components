@@ -1,0 +1,25 @@
+{% include "_base.html" %}
+{% block style %}
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            margin: 100px auto;
+            text-align: center;
+        }
+    </style>
+{% endblock style %}
+{% block content %}
+    <header>
+        <div class="container">
+            <h1>List of components</h1>
+            {% for component in components %}
+                <p>
+                    <a href="{{ component.url }}">{{ component.name }}</a>
+                </p>
+            {% endfor %}
+        </div>
+    </header>
+{% endblock content %}

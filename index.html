@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="src/static/pico.min.css">
+    <style>
+        header {
+            text-align: center;
+        }
+    </style>
+    <title>Django HTMX Components</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Django HTMX Components</h1>
+        <div>
+          <a id="loading" aria-busy="true">Give us a few seconds while we load the components.</a>
+        </div>
+        <div>
+          <a href="/" id="loaded">Components loaded. Click here to see them.</a>
+        </div>
+      </div>
+    </header>
+    <script src="./app.js"></script>
+  </body>
+</html>

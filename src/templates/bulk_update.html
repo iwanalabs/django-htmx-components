@@ -1,0 +1,16 @@
+{% load static %}
+{% include "_base.html" %}
+{% block content %}
+    <div class="content">
+        <div class="container component-container">{% component "table_bulk_update" %}</div>
+        <div class="files">
+            {% for file in files %}
+                <details>
+                    <summary>{{ file.name }}</summary>
+                    <pre class="language-python" {% if file.lines %}data-range="{{ file.lines.0 }}, {{ file.lines.1 }}"{% endif %} data-src="{% static ''|add:file.path %}">
+                    </pre>
+                </details>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
