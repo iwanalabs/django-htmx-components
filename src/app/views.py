@@ -19,6 +19,12 @@ def index(request):
     return render(request, "index.html", {"components": components})
 
 
+def reset_database(request):
+    Contact.objects.all().delete()
+    create_contacts()
+    return redirect("index")
+
+
 def inline_validation(request):
     files = [
         {
@@ -52,7 +58,6 @@ def inline_validation(request):
 
 
 def bulk_update(request):
-    create_contacts(count=3)
     files = [
         {"name": "components/bulk_update/table.py", "path": "bulk_update/table.py"},
         {"name": "components/bulk_update/tbody.py", "path": "bulk_update/tbody.py"},
@@ -72,7 +77,6 @@ def bulk_update(request):
 
 
 def click_to_load(request):
-    create_contacts()
     files = [
         {"name": "components/click_to_load/table.py", "path": "click_to_load/table.py"},
         {"name": "components/click_to_load/tbody.py", "path": "click_to_load/tbody.py"},
@@ -93,7 +97,6 @@ def click_to_load(request):
 
 
 def edit_row(request):
-    create_contacts()
     files = [
         {"name": "components/edit_row/row.py", "path": "edit_row/row.py"},
         {"name": "components/edit_row/table.py", "path": "edit_row/table.py"},
@@ -113,7 +116,6 @@ def edit_row(request):
 
 
 def delete_row(request):
-    create_contacts()
     files = [
         {"name": "components/delete_row.py", "path": "delete_row.py"},
         {"name": "components/urls.py", "path": "urls.py", "lines": [10, 14]},
@@ -133,8 +135,6 @@ def delete_row(request):
 
 
 def click_to_edit(request):
-    create_contacts(count=1)
-
     files = [
         {"name": "components/click_to_edit.py", "path": "click_to_edit.py"},
         {"name": "components/urls.py", "path": "urls.py", "lines": [15, 24]},
@@ -154,7 +154,6 @@ def click_to_edit(request):
 
 
 def infinite_scroll(request):
-    create_contacts(count=100)
     files = [
         {
             "name": "components/infinite_scroll/table.py",
@@ -184,7 +183,6 @@ def infinite_scroll(request):
 
 
 def active_search(request):
-    create_contacts(count=100)
     files = [
         {"name": "components/active_search/input.py", "path": "active_search/input.py"},
         {"name": "components/active_search/tbody.py", "path": "active_search/tbody.py"},

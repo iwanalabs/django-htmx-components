@@ -14,8 +14,11 @@ run-django:
 run-pyodide:
 	make wheel && python3 -m http.server
 
+clear-migrations:
+	rm ${PACKAGE_DIR}/db.sqlite3 && cd ${PACKAGE_DIR} && find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+
 migrate:
-	rm ${PACKAGE_DIR}/db.sqlite3 && cd $(PACKAGE_DIR) && find . -path "*/migrations/*.py" -not -name "__init__.py" -delete && poetry run python manage.py makemigrations && poetry run python manage.py migrate
+	cd ${PACKAGE_DIR} && poetry run python manage.py makemigrations && poetry run python manage.py migrate
 
 tailwind:
 	npx tailwindcss -i $(INPUT_DIR)/style.css -o $(OUTPUT_DIR)/style.css --watch -c tailwind.config.js --minify
