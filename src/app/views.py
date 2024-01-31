@@ -6,13 +6,14 @@ from src.app.utils import create_contacts, source_link
 
 def index(request):
     components = [
-        {"name": "Click to Edit", "url": resolve_url("click_to_edit")},
-        {"name": "Inline Validation", "url": resolve_url("inline_validation")},
-        {"name": "Click to Load", "url": resolve_url("click_to_load")},
+        {"name": "Active Search", "url": resolve_url("active_search")},
         {"name": "Bulk Update", "url": resolve_url("bulk_update")},
+        {"name": "Click to Edit", "url": resolve_url("click_to_edit")},
+        {"name": "Click to Load", "url": resolve_url("click_to_load")},
         {"name": "Delete Row", "url": resolve_url("delete_row")},
         {"name": "Edit Row", "url": resolve_url("edit_row")},
         {"name": "Infinite Scroll", "url": resolve_url("infinite_scroll")},
+        {"name": "Inline Validation", "url": resolve_url("inline_validation")},
     ]
     return render(request, "index.html", {"components": components})
 
@@ -177,6 +178,25 @@ def infinite_scroll(request):
             "title": "Infinite Scroll",
             "description": "Infinite scroll of a Django model",
             "full_code_url": source_link("components/infinite_scroll"),
+        },
+    )
+
+
+def active_search(request):
+    files = [
+        {"name": "components/active_search/table.py", "path": "active_search/table.py"},
+        {"name": "components/active_search/tbody.py", "path": "active_search/tbody.py"},
+        {"name": "components/active_search/urls.py", "path": "active_search/urls.py"},
+        {"name": "template/active_search.html", "path": "active_search.html"},
+    ]
+    return render(
+        request,
+        "active_search.html",
+        {
+            "files": files,
+            "title": "Active Search",
+            "description": "Active search of a Django model",
+            "full_code_url": source_link("components/active_search"),
         },
     )
 

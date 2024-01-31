@@ -46,4 +46,4 @@ class DeleteRowComponent(component.Component):
         return HttpResponse(status=200)
 
     def get_context_data(self, **kwargs):
-        return {"contacts": Contact.objects.all().order_by("id")[:5]}
+        return {"contacts": Contact.objects.all().order_by("id")[:5]} # remove limit

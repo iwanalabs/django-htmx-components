@@ -3,6 +3,7 @@ from src.components.click_to_edit import ClickToEditComponent
 from src.components.delete_row import DeleteRowComponent
 
 urlpatterns = [
+    path("active_search/", include("src.components.active_search.urls")),
     path("bulk_update/", include("src.components.bulk_update.urls")),
     path(
         "click_to_edit/contact/<int:id>",

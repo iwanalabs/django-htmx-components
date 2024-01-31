@@ -41,7 +41,7 @@ class TBodyBulkUpdateComponent(component.Component):
                 status="Inactive"
             )
         context = {
-            "contacts": Contact.objects.all().order_by("id")[:5],
+            "contacts": Contact.objects.all().order_by("id")[:5],  # remove limit
             "update": update,
             "ids": [int(id_) for id_ in request.POST.getlist("ids")],
         }

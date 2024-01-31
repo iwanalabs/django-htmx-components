@@ -4,6 +4,7 @@ from src.app import views
 
 urlpatterns = [
     path("", views.index, name="index"),
+    path("active_search/", views.active_search, name="active_search"),
     path("bulk_update/", views.bulk_update, name="bulk_update"),
     path("click_to_edit/", views.click_to_edit, name="click_to_edit"),
     path("click_to_load/", views.click_to_load, name="click_to_load"),
