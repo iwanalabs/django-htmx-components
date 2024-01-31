@@ -27,19 +27,19 @@
   }
 
   .label {
-    @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white;
+    @apply block mb-2 text-sm font-medium text-slate-900 dark:text-white;
   }
 
   .input {
-    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+    @apply bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
   }
 
   .input-error {
-    @apply bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:border-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500;
+    @apply bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-slate-700 focus:border-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500;
   }
 
   .disabled-input {
-    @apply mb-5 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500;
+    @apply mb-5 bg-slate-100 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-slate-400 dark:focus:ring-blue-500 dark:focus:border-blue-500;
   }
 
   .active-tab {
@@ -47,7 +47,7 @@
   }
 
   .inactive-tab {
-    @apply inline-block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white;
+    @apply inline-block px-4 py-3 rounded-lg hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-white;
   }
 
   .link {
@@ -55,7 +55,7 @@
   }
 
   .tr {
-    @apply bg-white border-b dark:bg-gray-800 dark:border-gray-700;
+    @apply bg-white border-b dark:bg-slate-800 dark:border-slate-700;
   }
 
   .td {
@@ -71,10 +71,10 @@
   }
 
   .table {
-    @apply w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400;
+    @apply w-full text-sm text-left rtl:text-right text-slate-500 dark:text-slate-400;
   }
 
   .thead {
-    @apply text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400;
+    @apply text-xs text-slate-700 uppercase bg-slate-50 dark:bg-slate-700 dark:text-slate-400;
   }
 }
