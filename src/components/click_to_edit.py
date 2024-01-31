@@ -17,38 +17,41 @@ def build_context(contact, editing=False):
 class ClickToEditComponent(component.Component):
     template = """
         {% if editing %}
-            <form hx-post="{% url 'contact' id=id %}" hx-target="this" hx-swap="outerHTML">
-            <div>
-                <label>First Name</label>
-                <input type="text" name="firstName" value="{{ first_name }}">
-            </div>
-            <div class="form-group">
-                <label>Last Name</label>
-                <input type="text" name="lastName" value="{{ last_name }}">
-            </div>
-            <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" name="email" value="{{ email }}">
-            </div>
-            <div>
-                <button class="primary">Submit</button>
-                <button class="secondary" hx-get="{% url 'contact' id=id %}">
-                    Cancel
-                </button>
-            </div>
+            <form hx-post="{% url 'contact' id=id %}" hx-target="this" hx-swap="outerHTML" class="max-w-sm mx-auto">
+                <div class="mb-5">
+                    <label class="label" >First Name</label>
+                    <input class="input" type="text" name="firstName" value="{{ first_name }}">
+                </div>
+                <div class="mb-5">
+                    <label class="label">Last Name</label>
+                    <input class="input" type="text" name="lastName" value="{{ last_name }}">
+                </div>
+                <div class="mb-5">
+                    <label class="label">Email Address</label>
+                    <input class="input" type="email" name="email" value="{{ email }}">
+                </div>
+                <div>
+                    <button class="btn-primary">Submit</button>
+                    <button class="btn-secondary" hx-get="{% url 'contact' id=id %}">
+                        Cancel
+                    </button>
+                </div>
             </form>
         {% else %}
-        <div hx-target="this" hx-swap="outerHTML">
-            <div>
-                <b>First Name</b>: {{ first_name }}
+        <div hx-target="this" hx-swap="outerHTML" class="max-w-sm mx-auto">
+            <div class="mb-5">
+                <label class="label" >First Name</label>
+                <input class="disabled-input" type="text" value="{{ first_name }}" disabled>
             </div>
-            <div>
-                <b>Last Name</b>: {{ last_name }}
+            <div class="mb-5">
+                <label class="label">Last Name</label>
+                <input class="disabled-input" type="text" value="{{ last_name }}" disabled>
             </div>
-            <div>
-                <b>Email</b>: {{ email }}
+            <div class="mb-5">
+                <label class="label">Email Address</label>
+                <input class="disabled-input" type="email" value="{{ email }}" disabled>
             </div>
-            <button hx-get="{% url 'contact_edit' id=id %}">Click To Edit</button>
+            <button class="btn-primary" hx-get="{% url 'contact_edit' id=id %}">Click To Edit</button>
         </div>
         {% endif %}
     """

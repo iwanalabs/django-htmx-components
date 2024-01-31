@@ -143,7 +143,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATICFILES_DIRS = [
     BASE_DIR / "components",
-    BASE_DIR / "static",
-    BASE_DIR / "app",
+    BASE_DIR / "static/output",
     BASE_DIR / "templates",
 ]

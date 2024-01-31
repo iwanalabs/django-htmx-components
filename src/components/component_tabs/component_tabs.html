@@ -1,0 +1,42 @@
+{% load static %}
+<div class="flex flex-row flex-wrap justify-between mt-10">
+    <div class="w-full md:w-1/2 md:my-40 mx-auto">
+        <h1 class="text-center text-4xl font-bold">{{ title }}</h1>
+        <p class="text-center font-light mb-10">{{ description }}</p>
+        <div>{% slot "component_code" %} {% endslot %}</div>
+    </div>
+    <hr class="mt-10 md:hidden w-48 h-1 mx-auto bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">
+    <div class="flex flex-col items-center w-full mt-10 md:mt-0 md:w-1/2">
+        <div class="w-full flex flex-row justify-between max-w-md md:max-w-2xl">
+            <div>
+                <label for="tabs" class="sr-only">Select a file</label>
+                <select id="tabs"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    {% for file in files %}
+                        <option value="{{ forloop.counter }}"
+                                id="button-{{ forloop.counter }}"
+                                data-target="content-{{ forloop.counter }}">{{ file.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <a href="{{ full_code_url }}"
+               class="btn-primary"
+               target="_blank"
+               rel="noopener noreferrer">Full code</a>
+        </div>
+        <div id="tabContentExample" class="max-w-md md:max-w-2xl">
+            {% for file in files %}
+                <div id="content-{{ forloop.counter }}"
+                     role="tabpanel"
+                     aria-labelledby="button-{{ forloop.counter }}">
+                    {# djlint: off #}
+                    <pre class="language-python" 
+                         {% if file.lines %}data-range="{{ file.lines.0 }}, {{ file.lines.1 }}"{% endif %} 
+                         data-src="{% static ''|add:file.path %}">
+                    </pre>
+                    {# djlint:  on #}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

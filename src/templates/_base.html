@@ -6,46 +6,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="{% static 'pico.min.css' %}">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
         <link rel="stylesheet" href="{% static 'prism.css' %}">
-        <style>
-            .content {
-                display: flex;
-                flex-direction: row;
-                gap: 64px;
-                margin: 100px 20px;
-            }
-
-            .component-container {
-                margin: 0 auto;
-                flex: 1 1 0;
-                width: 0;
-            }
-
-            .files {
-                flex: 1 1 0;
-                width: 0;
-            }
-
-            pre[class*=language-] {
-                font-size: 14px;
-                max-height: 100vh;
-                overflow: scroll;
-            }
-
-            /* Improve styling of Copy button */
-            div.code-toolbar>.toolbar {
-                top: .8em;
-                right: .5em;
-            }
-
-            div.code-toolbar>.toolbar>.toolbar-item>a,
-            div.code-toolbar>.toolbar>.toolbar-item>button,
-            div.code-toolbar>.toolbar>.toolbar-item>span {
-                padding: .2em .5em;
-                border-radius: 0.3rem;
-            }
-        </style>
         {% block style %}
         {% endblock style %}
         {% component_css_dependencies %}
@@ -57,6 +19,7 @@
         <script src="{% static 'sse.js' %}"></script>
         <script src="{% static 'ws.js' %}"></script>
         <script src="{% static 'prism.js' %}"></script>
+        <script src="{% static 'flowbite.min.js' %}"></script>
         <script>
             let button = document.getElementById('clickMe');
             button.addEventListener('click', function(e) {

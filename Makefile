@@ -1,7 +1,7 @@
 PROJECT_DIR=$(shell pwd)
 PACKAGE_DIR=$(PROJECT_DIR)/src
-INPUT_DIR=$(PROJECT_DIR)/input
-OUTPUT_DIR=$(PROJECT_DIR)/dist
+INPUT_DIR=$(PROJECT_DIR)/src/static/input
+OUTPUT_DIR=$(PROJECT_DIR)/src/static/output
 
 .PHONY: wheel
 

@@ -52,7 +52,12 @@ def click_to_edit(request):
     return render(
         request,
         "click_to_edit.html",
-        {"files": files},
+        {
+            "files": files,
+            "title": "Click to Edit",
+            "description": "Inline editing of a Django model",
+            "full_code_url": "https://github.com/iwanalabs/django-htmx-components/blob/main/src/components/click_to_edit.py",
+        },
     )
 
 
