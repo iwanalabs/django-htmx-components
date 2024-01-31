@@ -7,11 +7,11 @@ from src.app.models import Contact
 class TBodyBulkUpdateComponent(component.Component):
     template = """
         {% for contact in contacts %}
-        <tr class="{% if contact.id in ids %} {{ update }} {% endif %}"> 
-            <td><input type='checkbox' name='ids' value='{{ contact.id }}'></td>
-            <td>{{ contact.first_name }} {{ contact.last_name }}</td>
-            <td>{{ contact.email }}</td>
-            <td>{{ contact.status }}</td>
+        <tr class="tr {% if contact.id in ids %} {{ update }} {% endif %}"> 
+            <td class="td"><input class="checkbox" type='checkbox' name='ids' value='{{ contact.id }}'></td>
+            <td class="td">{{ contact.first_name }} {{ contact.last_name }}</td>
+            <td class="td">{{ contact.email }}</td>
+            <td class="td">{{ contact.status }}</td>
         </tr>
         {% endfor %}
     """
@@ -41,7 +41,7 @@ class TBodyBulkUpdateComponent(component.Component):
                 status="Inactive"
             )
         context = {
-            "contacts": Contact.objects.all(),
+            "contacts": Contact.objects.all().order_by("id")[:5],
             "update": update,
             "ids": [int(id_) for id_ in request.POST.getlist("ids")],
         }

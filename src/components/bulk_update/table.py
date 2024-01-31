@@ -8,20 +8,14 @@ from src.app.models import Contact
 @component.register("table_bulk_update")
 class TableBulkUpdateComponent(component.Component):
     template = """
-        <div hx-include="#checked-contacts" hx-target="#tbody">
-            <button class="primary"
-                    hx-post="{% url 'contacts_bulk_update' update='activate' %}">Activate</button>
-            <button class="secondary"
-                    hx-post="{% url 'contacts_bulk_update' update='deactivate' %}">Deactivate</button>
-        </div>
         <form id="checked-contacts">
-            <table>
-                <thead>
+            <table class="table">
+                <thead class="thead">
                     <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Status</th>
+                        <th class="th"></th>
+                        <th class="th">Name</th>
+                        <th class="th">Email</th>
+                        <th class="th">Status</th>
                     </tr>
                 </thead>
                 <tbody id="tbody">
@@ -29,6 +23,12 @@ class TableBulkUpdateComponent(component.Component):
                 </tbody>
             </table>
         </form>
+        <div class="mt-4" hx-include="#checked-contacts" hx-target="#tbody">
+            <button class="btn-primary"
+                    hx-post="{% url 'contacts_bulk_update' update='activate' %}">Activate</button>
+            <button class="btn-secondary"
+                    hx-post="{% url 'contacts_bulk_update' update='deactivate' %}">Deactivate</button>
+        </div>
     """
 
     css = """
@@ -44,12 +44,4 @@ class TableBulkUpdateComponent(component.Component):
     """
 
     def get_context_data(self, **kwargs):
-        return {"contacts": Contact.objects.all()}
-
-    def get(self, request, *args, **kwargs):
-        return self.render_to_response(
-            {
-                "contacts": Contact.objects.all(),
-                "csrf_token": get_token(request),
-            }
-        )
+        return {"contacts": Contact.objects.all().order_by("id")[:5]}

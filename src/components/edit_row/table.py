@@ -10,10 +10,10 @@ class TableEditRowComponent(component.Component):
         <table class="table">
             <thead class="thead">
                 <tr>
-                    <th scope="col" class="px-6 py-3">First name</th>
-                    <th scope="col" class="px-6 py-3">Last name</th>
-                    <th scope="col" class="px-6 py-3">Email</th>
-                    <th scope="col" class="px-6 py-3"></th>
+                    <th scope="col" class="th">First name</th>
+                    <th scope="col" class="th">Last name</th>
+                    <th scope="col" class="th">Email</th>
+                    <th scope="col" class="th"></th>
                 </tr>
             </thead>
             <tbody id="tbody" hx-target="closest tr" hx-swap="outerHTML">
@@ -23,11 +23,6 @@ class TableEditRowComponent(component.Component):
             </tbody>
         </table>
     """
-
-    def delete(self, request, id, *args, **kwargs):
-        delete_id = int(id)
-        Contact.objects.filter(id=delete_id).delete()
-        return HttpResponse(status=200)
 
     def get_context_data(self, **kwargs):
         return {"contacts": Contact.objects.all().order_by("id")[:5]}

@@ -50,7 +50,22 @@ def inline_validation(request):
 
 def bulk_update(request):
     create_contacts(count=3)
-    return render(request, "bulk_update.html", {"contacts": Contact.objects.all()})
+    files = [
+        {"name": "components/bulk_update/table.py", "path": "bulk_update/table.py"},
+        {"name": "components/bulk_update/tbody.py", "path": "bulk_update/tbody.py"},
+        {"name": "components/bulk_update/urls.py", "path": "bulk_update/urls.py"},
+        {"name": "template/bulk_update.html", "path": "bulk_update.html"},
+    ]
+    return render(
+        request,
+        "bulk_update.html",
+        {
+            "files": files,
+            "title": "Bulk Update",
+            "description": "Bulk update of Django models",
+            "full_code_url": source_link("components/bulk_update"),
+        },
+    )
 
 
 def click_to_load(request):
