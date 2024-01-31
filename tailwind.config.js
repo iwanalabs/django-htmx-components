@@ -55,6 +55,6 @@ module.exports = {
     require("flowbite/plugin")({
       charts: true,
     }),
-    require("@tailwindcss/typography"),
+    require("flowbite-typography"),
   ],
 };

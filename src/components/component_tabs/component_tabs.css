@@ -2,25 +2,6 @@ pre {
   font-size: 14px !important;
   max-height: 100vh;
   overflow: scroll;
-  margin: 0;
-  padding: 0;
-}
-
-pre,
-code {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-  pre,
-  code {
-    font-size: smaller !important; /* Reduce font size */
-  }
-}
-
-div.code-toolbar {
-  width: 100%;
 }
 
 div.code-toolbar > .toolbar {

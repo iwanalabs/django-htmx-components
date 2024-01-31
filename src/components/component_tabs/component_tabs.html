@@ -1,13 +1,12 @@
 {% load static %}
 <div class="flex flex-col items-center lg:items-start lg:flex-row lg:justify-between">
-    <div class="w-full md:w-1/2 mx-auto mt-20">
+    <div class="w-full md:w-1/2 mx-auto mt-20 mb-10">
         <h1 class="text-center text-4xl font-bold">{{ title }}</h1>
         <p class="text-center font-light mb-10">{{ description }}</p>
         <div class="flex flex-col items-center p-4">{% slot "component_code" %} {% endslot %}</div>
     </div>
-    <hr class="mt-10 lg:hidden w-48 h-1 mx-auto bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">
-    <div class="mt-20 flex flex-col items-center min-h-screen w-full md:mt-0 md:w-1/2 bg-slate-100 p-8">
-        <div class="w-full flex flex-row justify-between max-w-md md:max-w-2xl">
+    <div class="px-8 py-12 lg:py-8 flex flex-col items-center min-h-screen w-full lg:mt-0 lg:w-1/2 bg-slate-100">
+        <div class="w-full flex flex-col gap-2 items-center sm:flex sm:flex-row sm:items-start justify-between">
             <div>
                 <label for="tabs" class="sr-only">Select a file</label>
                 <select id="tabs"
@@ -20,7 +19,7 @@
                 </select>
             </div>
             <a href="{{ full_code_url }}"
-               class="btn-primary flex flex-row items-center gap-2"
+               class="btn-primary flex flex-row items-center gap-2 whitespace-nowrap"
                target="_blank"
                rel="noopener noreferrer">
                 <svg class="w-[16px] h-[16px] text-white-600 dark:text-slate-800"
@@ -32,14 +31,13 @@
                 </svg>
             Full code</a>
         </div>
-        <div id="tabContentExample" class="max-w-md md:max-w-2xl">
+        <div id="tabContentExample" class="w-full">
             {% for file in files %}
                 <div id="content-{{ forloop.counter }}"
-                     class="w-full"
                      role="tabpanel"
                      aria-labelledby="button-{{ forloop.counter }}">
                     {# djlint: off #}
-                    <pre class="language-python" 
+                    <pre class="language-python line-numbers" 
                          {% if file.lines %}data-range="{{ file.lines.0 }}, {{ file.lines.1 }}"{% endif %} 
                          data-src="{% static ''|add:file.path %}">
                     </pre>
