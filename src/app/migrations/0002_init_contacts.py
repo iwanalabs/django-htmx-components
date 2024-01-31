@@ -11,7 +11,7 @@ def create_initial_contacts(apps, schema_editor):
     Contact = apps.get_model("app", "Contact")
 
     # Call the create_contacts function
-    create_contacts()
+    create_contacts(count=100)
 
 
 class Migration(migrations.Migration):
@@ -19,4 +19,6 @@ class Migration(migrations.Migration):
         ("app", "0001_initial"),
     ]
 
-    operations = []
+    operations = [
+        migrations.RunPython(create_initial_contacts),
+    ]

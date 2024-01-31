@@ -1,12 +1,14 @@
 {% load static %}
 <div class="flex flex-col items-center lg:items-start lg:flex-row lg:justify-between">
-    <div class="w-full md:w-1/2 mx-auto mt-20 mb-10">
-        <h1 class="text-center text-4xl font-bold">{{ title }}</h1>
-        <p class="text-center font-light mb-10">{{ description }}</p>
-        <div class="flex flex-col items-center p-4">{% slot "component_code" %} {% endslot %}</div>
+    <div class="w-full md:w-1/2 mx-auto my-10 flex flex-col items-center px-4">
+        <h1 class="text-center text-4xl font-bold mt-20">{{ title }}</h1>
+        <p class="text-center font-light">{{ description }}</p>
+        <a class="text-sm font-medium text-slate-500 dark:text-slate-500 hover:underline text-center mt-2 mb-5"
+           href="{% url 'reset_data' %}">Reset data</a>
+        <div class="w-full flex flex-col items-center">{% slot "component_code" %} {% endslot %}</div>
     </div>
     <div class="px-8 py-12 lg:py-8 flex flex-col items-center min-h-screen w-full lg:mt-0 lg:w-1/2 bg-slate-100">
-        <div class="w-full flex flex-col gap-2 items-center sm:flex sm:flex-row sm:items-start justify-between">
+        <div class="w-full flex flex-col gap-2 items-center sm:flex sm:flex-row sm:items-start justify-between lg:mt-20">
             <div>
                 <label for="tabs" class="sr-only">Select a file</label>
                 <select id="tabs"

@@ -21,8 +21,9 @@ def index(request):
 
 def reset_database(request):
     Contact.objects.all().delete()
-    create_contacts()
-    return redirect("index")
+    create_contacts(count=100)
+    # redirect to the same page
+    return redirect(request.META.get("HTTP_REFERER"))
 
 
 def inline_validation(request):
@@ -203,8 +204,9 @@ def active_search(request):
 
 def progress_bar(request):
     files = [
-        {"name": "components/progress_bar/start.py", "path": "progress_bar/start.py"},
         {"name": "components/progress_bar/bar.py", "path": "progress_bar/bar.py"},
+        {"name": "components/progress_bar/start.py", "path": "progress_bar/start.py"},
+        {"name": "components/progress_bar/status.py", "path": "progress_bar/status.py"},
         {"name": "components/progress_bar/urls.py", "path": "progress_bar/urls.py"},
         {"name": "template/progress_bar.html", "path": "progress_bar.html"},
     ]
