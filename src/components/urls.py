@@ -24,4 +24,5 @@ urlpatterns = [
     path("edit_row/", include("src.components.edit_row.urls")),
     path("infinite_scroll/", include("src.components.infinite_scroll.urls")),
     path("inline_validation/", include("src.components.inline_validation.urls")),
+    path("progress_bar/", include("src.components.progress_bar.urls")),
 ]

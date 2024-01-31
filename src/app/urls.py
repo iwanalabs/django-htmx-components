@@ -12,4 +12,5 @@ urlpatterns = [
     path("edit_row/", views.edit_row, name="edit_row"),
     path("infinite_scroll/", views.infinite_scroll, name="infinite_scroll"),
     path("inline_validation/", views.inline_validation, name="inline_validation"),
+    path("progress_bar/", views.progress_bar, name="progress_bar"),
 ]

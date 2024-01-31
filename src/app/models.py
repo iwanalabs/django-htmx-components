@@ -8,3 +8,7 @@ class Contact(models.Model):
     last_name = models.CharField(max_length=100)
     email = models.EmailField()
     status = models.CharField(max_length=100, default="Inactive")
+
+
+class Job(models.Model):
+    progress = models.IntegerField(default=0)

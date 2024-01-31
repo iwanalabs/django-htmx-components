@@ -14,6 +14,7 @@ def index(request):
         {"name": "Edit Row", "url": resolve_url("edit_row")},
         {"name": "Infinite Scroll", "url": resolve_url("infinite_scroll")},
         {"name": "Inline Validation", "url": resolve_url("inline_validation")},
+        {"name": "Progress Bar", "url": resolve_url("progress_bar")},
     ]
     return render(request, "index.html", {"components": components})
 
@@ -183,8 +184,9 @@ def infinite_scroll(request):
 
 
 def active_search(request):
+    create_contacts(count=100)
     files = [
-        {"name": "components/active_search/table.py", "path": "active_search/table.py"},
+        {"name": "components/active_search/input.py", "path": "active_search/input.py"},
         {"name": "components/active_search/tbody.py", "path": "active_search/tbody.py"},
         {"name": "components/active_search/urls.py", "path": "active_search/urls.py"},
         {"name": "template/active_search.html", "path": "active_search.html"},
@@ -197,6 +199,25 @@ def active_search(request):
             "title": "Active Search",
             "description": "Active search of a Django model",
             "full_code_url": source_link("components/active_search"),
+        },
+    )
+
+
+def progress_bar(request):
+    files = [
+        {"name": "components/progress_bar/start.py", "path": "progress_bar/start.py"},
+        {"name": "components/progress_bar/bar.py", "path": "progress_bar/bar.py"},
+        {"name": "components/progress_bar/urls.py", "path": "progress_bar/urls.py"},
+        {"name": "template/progress_bar.html", "path": "progress_bar.html"},
+    ]
+    return render(
+        request,
+        "progress_bar.html",
+        {
+            "files": files,
+            "title": "Progress Bar",
+            "description": "Progress bar",
+            "full_code_url": source_link("components/progress_bar"),
         },
     )
 
