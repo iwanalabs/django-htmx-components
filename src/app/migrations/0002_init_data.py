@@ -3,15 +3,15 @@
 from django.db import migrations
 
 
-def create_initial_contacts(apps, schema_editor):
-    # Import the create_contacts function
-    from src.app.utils import create_contacts
+def create_initial_data(apps, schema_editor):
+    from src.app.utils import create_contacts, create_brands_and_cars
 
-    # Fetch the Contact model using apps.get_model
     Contact = apps.get_model("app", "Contact")
+    Brand = apps.get_model("app", "Brand")
+    CarModel = apps.get_model("app", "CarModel")
 
-    # Call the create_contacts function
     create_contacts(count=100)
+    create_brands_and_cars()
 
 
 class Migration(migrations.Migration):
@@ -20,5 +20,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(create_initial_contacts),
+        migrations.RunPython(create_initial_data),
     ]

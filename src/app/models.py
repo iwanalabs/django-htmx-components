@@ -12,3 +12,12 @@ class Contact(models.Model):
 
 class Job(models.Model):
     progress = models.IntegerField(default=0)
+
+
+class Brand(models.Model):
+    name = models.CharField(max_length=100)
+
+
+class CarModel(models.Model):
+    name = models.CharField(max_length=100)
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE)

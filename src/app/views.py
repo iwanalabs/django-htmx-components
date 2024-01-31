@@ -8,6 +8,7 @@ def index(request):
     components = [
         {"name": "Active Search", "url": resolve_url("active_search")},
         {"name": "Bulk Update", "url": resolve_url("bulk_update")},
+        {"name": "Cascading Selects", "url": resolve_url("cascading_selects")},
         {"name": "Click to Edit", "url": resolve_url("click_to_edit")},
         {"name": "Click to Load", "url": resolve_url("click_to_load")},
         {"name": "Delete Row", "url": resolve_url("delete_row")},
@@ -218,6 +219,34 @@ def progress_bar(request):
             "title": "Progress Bar",
             "description": "Progress bar",
             "full_code_url": source_link("components/progress_bar"),
+        },
+    )
+
+
+def cascading_selects(request):
+    files = [
+        {
+            "name": "components/cascading_selects/parent_select.py",
+            "path": "cascading_selects/parent_select.py",
+        },
+        {
+            "name": "components/cascading_selects/select.py",
+            "path": "cascading_selects/select.py",
+        },
+        {
+            "name": "components/cascading_selects/urls.py",
+            "path": "cascading_selects/urls.py",
+        },
+        {"name": "template/cascading_selects.html", "path": "cascading_selects.html"},
+    ]
+    return render(
+        request,
+        "cascading_selects.html",
+        {
+            "files": files,
+            "title": "Cascading Selects",
+            "description": "Cascading selects",
+            "full_code_url": source_link("components/cascading_selects"),
         },
     )
 

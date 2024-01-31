@@ -1,4 +1,4 @@
-from src.app.models import Contact
+from src.app.models import Contact, Brand, CarModel
 
 contacts_list = [
     {
@@ -703,6 +703,83 @@ contacts_list = [
     },
 ]
 
+brands_list = [
+    "Toyota",
+    "Ford",
+    "Honda",
+    "Chevrolet",
+]
+
+car_models_list = {
+    "Toyota": [
+        "4Runner",
+        "Avalon",
+        "Camry",
+        "Corolla",
+        "Highlander",
+        "Land Cruiser",
+        "Prius",
+        "RAV4",
+        "Sequoia",
+        "Sienna",
+        "Tacoma",
+        "Tundra",
+        "Yaris",
+    ],
+    "Ford": [
+        "Bronco",
+        "EcoSport",
+        "Edge",
+        "Escape",
+        "Expedition",
+        "Explorer",
+        "F-150",
+        "F-250",
+        "F-350",
+        "F-450",
+        "Fiesta",
+        "Flex",
+        "Focus",
+        "Fusion",
+        "Mustang",
+        "Ranger",
+        "Taurus",
+        "Transit",
+    ],
+    "Honda": [
+        "Accord",
+        "Civic",
+        "Clarity",
+        "CR-V",
+        "Fit",
+        "HR-V",
+        "Insight",
+        "Odyssey",
+        "Passport",
+        "Pilot",
+        "Ridgeline",
+    ],
+    "Chevrolet": [
+        "Blazer",
+        "Bolt EV",
+        "Camaro",
+        "Colorado",
+        "Corvette",
+        "Equinox",
+        "Express",
+        "Impala",
+        "Malibu",
+        "Silverado",
+        "Sonic",
+        "Spark",
+        "Suburban",
+        "Tahoe",
+        "Trailblazer",
+        "Traverse",
+        "Trax",
+    ],
+}
+
 
 def source_link(link):
     return "https://github.com/iwanalabs/django-htmx-components/blob/main/src/" + link
@@ -719,3 +796,12 @@ def create_contacts(contacts=contacts_list, count=None):
                 "status": contact["status"],
             },
         )
+
+
+def create_brands_and_cars():
+    for brand in brands_list:
+        Brand.objects.get_or_create(name=brand)
+        for car_model in car_models_list[brand]:
+            CarModel.objects.get_or_create(
+                name=car_model, brand=Brand.objects.get(name=brand)
+            )
