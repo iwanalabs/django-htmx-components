@@ -74,6 +74,10 @@ contacts_list = [
 ]
 
 
+def source_link(link):
+    return "https://github.com/iwanalabs/django-htmx-components/blob/main/src/" + link
+
+
 def create_contacts(contacts=contacts_list, count=None):
     for contact in contacts[:count]:
         Contact.objects.get_or_create(

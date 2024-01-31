@@ -1,25 +1,18 @@
 {% include "_base.html" %}
 {% block style %}
-    <style>
-        h1 {
-            text-align: center;
-        }
-
-        .container {
-            margin: 100px auto;
-            text-align: center;
-        }
-    </style>
 {% endblock style %}
 {% block content %}
     <header>
-        <div class="container">
-            <h1>List of components</h1>
-            {% for component in components %}
-                <p>
-                    <a href="{{ component.url }}">{{ component.name }}</a>
-                </p>
-            {% endfor %}
+        <div class="text-center mt-24">
+            <h1 class="text-5xl font-extrabold dark:text-white">List of components</h1>
+            <div class="mt-4">
+                {% for component in components %}
+                    <p>
+                        <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                           href="{{ component.url }}">{{ component.name }}</a>
+                    </p>
+                {% endfor %}
+            </div>
         </div>
     </header>
 {% endblock content %}

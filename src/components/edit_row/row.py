@@ -8,27 +8,27 @@ from src.app.models import Contact
 class RowEditRowComponent(component.Component):
     template = """
         {% if not editing %}
-            <tr class="{% if contact.id in ids %} {{ update }} {% endif %}"> 
-                <td>{{ contact.first_name }}</td>
-                <td>{{ contact.last_name }}</td>
-                <td>{{ contact.email }}</td>
-                <td>
-                    <button class="secondary" hx-get="{% url 'row_edit_row' id=contact.id %}?edit=True" hx-trigger="edit" onClick="editClick(this)">
+            <tr class="tr {% if contact.id in ids %} {{ update }} {% endif %}"> 
+                <td class="td">{{ contact.first_name }}</td>
+                <td class="td">{{ contact.last_name }}</td>
+                <td class="td">{{ contact.email }}</td>
+                <td class="td">
+                    <button class="link" hx-get="{% url 'row_edit_row' id=contact.id %}?edit=True" hx-trigger="edit" onClick="editClick(this)">
                     Edit 
                     </button>
                 </td>
             </tr>
         {% else %}
-            <tr hx-trigger='cancel' class='editing' hx-get="{% url 'row_edit_row' id=contact.id %}">
-                <td><input name='first_name' value='{{ contact.first_name }}'></td>
-                <td><input name='last_name' value='{{ contact.last_name }}'></td>
-                <td><input name='email' value='{{ contact.email }}'></td>
-                <td>
-                    <button role="button" class="secondary" hx-get="{% url 'row_edit_row' id=contact.id %}">
-                        Cancel
+            <tr hx-trigger='cancel' class='tr editing' hx-get="{% url 'row_edit_row' id=contact.id %}">
+                <td class="td-tight"><input class="input" name='first_name' value='{{ contact.first_name }}'></td>
+                <td class="td-tight"><input class="input" name='last_name' value='{{ contact.last_name }}'></td>
+                <td class="td-tight"><input class="input" name='email' value='{{ contact.email }}'></td>
+                <td class="td-tight flex flex-row gap-1">
+                    <button class="btn-secondary-small" hx-get="{% url 'row_edit_row' id=contact.id %}">
+                    ✘
                     </button>
-                    <button role="button" hx-post="{% url 'row_edit_row' id=contact.id %}" hx-include="closest tr">
-                        Save
+                    <button class="btn-primary-small" hx-post="{% url 'row_edit_row' id=contact.id %}" hx-include="closest tr">
+                    ✓
                     </button>
                 </td>
             </tr>

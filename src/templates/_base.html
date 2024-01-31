@@ -5,14 +5,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Django HTMX Components</title>
         <link rel="stylesheet" href="{% static 'style.css' %}">
         <link rel="stylesheet" href="{% static 'prism.css' %}">
         {% block style %}
         {% endblock style %}
         {% component_css_dependencies %}
     </head>
-    <body hx-headers='{"x-csrftoken": "{{ csrf_token }}"}'>
+    <body hx-headers='{"x-csrftoken": "{{ csrf_token }}"}'
+          class="antialiased bg-white dark:bg-gray-900 font-body">
         {% block content %}
         {% endblock content %}
         <script src="{% static 'htmx.min.js' %}"></script>

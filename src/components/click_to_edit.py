@@ -17,7 +17,7 @@ def build_context(contact, editing=False):
 class ClickToEditComponent(component.Component):
     template = """
         {% if editing %}
-            <form hx-post="{% url 'contact' id=id %}" hx-target="this" hx-swap="outerHTML" class="max-w-sm mx-auto">
+            <form hx-post="{% url 'contact' id=id %}" hx-target="this" hx-swap="outerHTML" class="form">
                 <div class="mb-5">
                     <label class="label" >First Name</label>
                     <input class="input" type="text" name="firstName" value="{{ first_name }}">
@@ -38,7 +38,7 @@ class ClickToEditComponent(component.Component):
                 </div>
             </form>
         {% else %}
-        <div hx-target="this" hx-swap="outerHTML" class="max-w-sm mx-auto">
+        <div hx-target="this" hx-swap="outerHTML" class="form">
             <div class="mb-5">
                 <label class="label" >First Name</label>
                 <input class="disabled-input" type="text" value="{{ first_name }}" disabled>

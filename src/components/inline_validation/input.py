@@ -11,10 +11,10 @@ class InputInlineValidationComponent(component.Component):
             hx-target="this"
             hx-swap="outerHTML">
             {% if label %}
-                <label for="{{ widget.attrs.id }}">{{ label }}</label>
+                <label class="label {% if errors %} text-red-700 dark:text-red-500 {% endif %}" for="{{ widget.attrs.id }}">{{ label }}</label>
             {% endif %}
             {% if not widget.type %}
-                <textarea name="{{ widget.name }}"
+                <textarea class="{% if errors %} input-error {% else %} input {% endif %}" name="{{ widget.name }}"
                         {% for name, value in widget.attrs.items %}
                             {% if value is not False %}
                             {{ name }}
@@ -22,7 +22,7 @@ class InputInlineValidationComponent(component.Component):
                             {% endif %}
                         {% endfor %}>{% if widget.value != None %}{{ widget.value|stringformat:'s' }}{% endif %}</textarea>
             {% else %}
-                <input type="{{ widget.type }}"
+                <input class="{% if errors %} input-error {% else %} input {% endif %}" type="{{ widget.type }}"
                     name="{{ widget.name }}"
                     {% if widget.value != None %}value="{{ widget.value|stringformat:'s' }}"{% endif %}
                     {% for name, value in widget.attrs.items %}
@@ -34,7 +34,7 @@ class InputInlineValidationComponent(component.Component):
             {% endif %}
             {% if errors %}
                 <ul> 
-                    {% for error in errors %}<li><small>{{ error }}</small></li>{% endfor %}
+                    {% for error in errors %}<li class="text-sm text-red-600 dark:text-red-500">{{ error }}</li>{% endfor %}
                 </ul>
             {% endif %}
         </div>

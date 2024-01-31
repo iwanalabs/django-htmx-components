@@ -7,13 +7,13 @@ from src.app.models import Contact
 @component.register("table_click_to_load")
 class TableClickToLoadComponent(component.Component):
     template = """
-        <table>
-            <thead>
+        <table class="table">
+            <thead class="thead">
                 <tr>
                     <th></th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Status</th>
+                    <th class="td">Name</th>
+                    <th class="td">Email</th>
+                    <th class="td">Status</th>
                 </tr>
             </thead>
             <tbody id="tbody">

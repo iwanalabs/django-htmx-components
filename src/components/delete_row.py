@@ -7,22 +7,23 @@ from src.app.models import Contact
 @component.register("delete_row")
 class DeleteRowComponent(component.Component):
     template = """
-        <table>
-            <thead>
+        <table class="table">
+            <thead class="thead">
                 <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Status</th>
+                    <th class="td">Name</th>
+                    <th class="td">Email</th>
+                    <th class="td">Status</th>
+                    <th class="td"></th>
                 </tr>
             </thead>
             <tbody id="tbody" hx-confirm="Are you sure?" hx-target="closest tr" hx-swap="outerHTML">
                 {% for contact in contacts %}
-                <tr class="{% if contact.id in ids %} {{ update }} {% endif %}"> 
-                    <td>{{ contact.first_name }} {{ contact.last_name }}</td>
-                    <td>{{ contact.email }}</td>
-                    <td>{{ contact.status }}</td>
-                    <td>
-                        <button class="secondary" hx-delete="{% url 'contact_delete_row' id=contact.id %}">
+                <tr class="tr {% if contact.id in ids %} {{ update }} {% endif %}"> 
+                    <td class="td">{{ contact.first_name }} {{ contact.last_name }}</td>
+                    <td class="td">{{ contact.email }}</td>
+                    <td class="td">{{ contact.status }}</td>
+                    <td class="td-tight">
+                        <button class="btn-red-small" hx-delete="{% url 'contact_delete_row' id=contact.id %}">
                         Delete
                         </button>
                     </td>

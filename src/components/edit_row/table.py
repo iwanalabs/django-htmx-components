@@ -7,12 +7,13 @@ from src.app.models import Contact
 @component.register("table_edit_row")
 class TableEditRowComponent(component.Component):
     template = """
-        <table>
-            <thead>
+        <table class="table">
+            <thead class="thead">
                 <tr>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Email</th>
+                    <th scope="col" class="px-6 py-3">First name</th>
+                    <th scope="col" class="px-6 py-3">Last name</th>
+                    <th scope="col" class="px-6 py-3">Email</th>
+                    <th scope="col" class="px-6 py-3"></th>
                 </tr>
             </thead>
             <tbody id="tbody" hx-target="closest tr" hx-swap="outerHTML">

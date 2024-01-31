@@ -8,17 +8,17 @@ from src.app.models import Contact
 class TBodyClickToLoadComponent(component.Component):
     template = """
         {% for contact in page_obj %}
-            <tr> 
-                <td>{{ contact.id }}</td>
-                <td>{{ contact.first_name }} {{ contact.last_name }}</td>
-                <td>{{ contact.email }}</td>
-                <td>{{ contact.status }}</td>
+            <tr class="tr"> 
+                <td class="td">{{ contact.id }}</td>
+                <td class="td">{{ contact.first_name }} {{ contact.last_name }}</td>
+                <td class="td">{{ contact.email }}</td>
+                <td class="td">{{ contact.status }}</td>
             </tr>
             {% if forloop.last and page_obj.has_next %} 
                 <tr id="replaceMe">
-                    <td colspan="4">
+                    <td colspan="4" class="td-tight text-center">
                         <button 
-                            class='primary' 
+                            class='btn-primary' 
                             hx-get="{% url 'tbody_click_to_load' page=page_obj.next_page_number %}"
                             hx-target="#replaceMe"
                             hx-swap="outerHTML">

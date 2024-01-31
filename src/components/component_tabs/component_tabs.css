@@ -2,7 +2,7 @@ pre {
   font-size: 14px !important;
   max-height: 100vh;
   overflow: scroll;
-  with: 100%;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
