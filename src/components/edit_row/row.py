@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django_components import component
 
 from src.app.models import Contact

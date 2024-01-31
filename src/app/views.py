@@ -12,6 +12,7 @@ def index(request):
         {"name": "Bulk Update", "url": resolve_url("bulk_update")},
         {"name": "Delete Row", "url": resolve_url("delete_row")},
         {"name": "Edit Row", "url": resolve_url("edit_row")},
+        {"name": "Infinite Scroll", "url": resolve_url("infinite_scroll")},
     ]
     return render(request, "index.html", {"components": components})
 
@@ -146,6 +147,36 @@ def click_to_edit(request):
             "title": "Click to Edit",
             "description": "Inline editing of a Django model",
             "full_code_url": source_link("components/click_to_edit.py"),
+        },
+    )
+
+
+def infinite_scroll(request):
+    create_contacts(count=100)
+    files = [
+        {
+            "name": "components/infinite_scroll/table.py",
+            "path": "infinite_scroll/table.py",
+        },
+        {
+            "name": "components/infinite_scroll/tbody.py",
+            "path": "infinite_scroll/tbody.py",
+        },
+        {
+            "name": "components/infinite_scroll/urls.py",
+            "path": "infinite_scroll/urls.py",
+        },
+        {"name": "template/infinite_scroll.html", "path": "infinite_scroll.html"},
+    ]
+
+    return render(
+        request,
+        "infinite_scroll.html",
+        {
+            "files": files,
+            "title": "Infinite Scroll",
+            "description": "Infinite scroll of a Django model",
+            "full_code_url": source_link("components/infinite_scroll"),
         },
     )
 
