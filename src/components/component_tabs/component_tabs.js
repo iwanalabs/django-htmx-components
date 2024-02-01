@@ -1,25 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const tabsElement = document.getElementById("tabs");
-  const tabButtons = document.querySelectorAll("#tabs > option");
-  let tabElements = [];
+  const tabsSelect = document.getElementById("tabs");
+  const contentTabs = document.getElementsByClassName("tab-content");
 
-  tabButtons.forEach((tabButton) => {
-    const id = tabButton.value;
-    const triggerEl = tabButton;
-    const targetEl = document.getElementById(tabButton.dataset.target);
-    tabElements.push({ id, triggerEl, targetEl });
+  tabsSelect.addEventListener("change", function (event) {
+    const tabOption = document.getElementById(event.target.value);
+    const tabContent = document.getElementById(tabOption.dataset.target);
+
+    for (let i = 0; i < contentTabs.length; i++) {
+      contentTabs[i].classList.add("hidden");
+    }
+
+    tabContent.classList.remove("hidden");
   });
-
-  const options = {
-    defaultTabId: "content-1",
-    activeClasses: "active-tab active",
-    inactiveClasses: "inactive-tab",
-  };
-  const instanceOptions = {
-    id: "tabs",
-    override: true,
-  };
-  const tabs = new Tabs(tabsElement, tabElements, options, instanceOptions);
-
-  let button = document.getElementsByClassName("copy-to-clipboard-button")[0];
 });

@@ -14,7 +14,7 @@
                 <select id="tabs"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     {% for file in files %}
-                        <option value="{{ forloop.counter }}"
+                        <option value="button-{{ forloop.counter }}"
                                 id="button-{{ forloop.counter }}"
                                 data-target="content-{{ forloop.counter }}">{{ file.name }}</option>
                     {% endfor %}
@@ -33,10 +33,11 @@
                 </svg>
             Source code</a>
         </div>
-        <div id="tabContentExample" class="w-full">
+        <div class="w-full">
             {% for file in files %}
                 <div id="content-{{ forloop.counter }}"
                      role="tabpanel"
+                     class="tab-content"
                      aria-labelledby="button-{{ forloop.counter }}">
                     {# djlint: off #}
                     <pre class="language-python line-numbers" 
