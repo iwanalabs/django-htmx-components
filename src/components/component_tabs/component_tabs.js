@@ -20,4 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
     override: true,
   };
   const tabs = new Tabs(tabsElement, tabElements, options, instanceOptions);
+
+  let button = document.getElementsByClassName("copy-to-clipboard-button")[0];
 });

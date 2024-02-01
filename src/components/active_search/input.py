@@ -9,8 +9,7 @@ class InputActiveSearchComponent(component.Component):
                 name="search" placeholder="Search for a user" 
                 hx-post="{% url 'tbody_active_search' %}" 
                 hx-trigger="input changed delay:500ms, search" 
-                hx-target="#search-results" 
-                hx-indicator=".htmx-indicator">
+                hx-target="#search-results">
         </div>
         <table class="table">
             <thead class="thead">

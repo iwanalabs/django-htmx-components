@@ -2,6 +2,7 @@
 module.exports = {
   darkMode: "class",
   content: [
+    "./*.html",
     "./src/templates/*.html",
     "./src/templates/**/*.html",
     "./src/templates/**/**/*.html",
