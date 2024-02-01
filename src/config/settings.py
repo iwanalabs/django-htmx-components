@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["components.iwanalabs.com", "localhost", "127.0.0.1"]
 
+CSRF_TRUSTED_ORIGINS = ["https://components.iwanalabs.com"]
+
 # Application definition
 
 INSTALLED_APPS = [
