@@ -2,7 +2,7 @@ APP_NAME=django-htmx-components
 PROJECT_DIR=/home/ubuntu/django-htmx-components
 PROJECT_SUBDIR=src
 REPOSITORY_NAME=iwanalabs/django-htmx-components.git
-SERVER_NAME=components.iwanalabs.com
+SERVER_NAME=dhc.iwanalabs.com
 PYTHON_VERSION=3.10
 
 function confirm_action {
