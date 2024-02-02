@@ -1,4 +1,3 @@
-import time
 from django.core.paginator import Paginator
 from django_components import component
 
@@ -29,7 +28,6 @@ class TBodyInfiniteScrollComponent(component.Component):
 
     def get(self, request, page, **kwargs):
         paginator = Paginator(Contact.objects.order_by("id"), 10)
-        time.sleep(1)  # Simulate a slow response
         page_obj = paginator.get_page(page)
         context = {"page_obj": page_obj}
         return self.render_to_response(context)
