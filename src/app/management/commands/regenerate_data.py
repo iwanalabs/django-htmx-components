@@ -7,7 +7,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         # Assuming you have functions to delete the old data.
-        # delete_old_data()
+        delete_data()
 
         # Your data creation logic here
         create_contacts(count=100)
