@@ -1,15 +1,13 @@
 from django.core.management.base import BaseCommand
-from app.utils import create_contacts, create_brands_and_cars, delete_data
+from app.utils import create_contacts, create_brands_and_cars, delete_contacts
 
 
 class Command(BaseCommand):
     help = "Deletes old data and regenerates new data"
 
     def handle(self, *args, **kwargs):
-        # Assuming you have functions to delete the old data.
-        delete_data()
+        delete_contacts()
 
-        # Your data creation logic here
         create_contacts(count=100)
         create_brands_and_cars()
 
