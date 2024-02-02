@@ -148,4 +148,4 @@ node_modules/
 db.sqlite3-shm
 db.sqlite3-wal
 
-dumb.rdb
+tmp/
