@@ -2,7 +2,7 @@
 name = "django_htmx_components"
 version = "0.1.0"
 description = ""
-authors = ["Dylan Castillo <me@dylancastillo.co>"]
+authors = ["Dylan Castillo <dylan@iwanalabs.com>"]
 packages = [
     {include = "src"}
 ]
@@ -12,7 +12,10 @@ python = "^3.10"
 Django = "^5.0.1"
 django-htmx = "^1.17.2"
 WebTest = "^3.0.0"
-django-components = "0.34.1"
+django-components = { file = "./django_components-0.34.1-py3-none-any.whl" } # temporary until fix #290 is merged
+django-environ = "^0.11.2"
+whitenoise = "^6.6.0"
+redis = "^5.0.1"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.7.0"

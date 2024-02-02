@@ -4,7 +4,7 @@ from django.db import migrations
 
 
 def create_initial_data(apps, schema_editor):
-    from src.app.utils import create_contacts, create_brands_and_cars
+    from app.utils import create_contacts, create_brands_and_cars
 
     Contact = apps.get_model("app", "Contact")
     Brand = apps.get_model("app", "Brand")

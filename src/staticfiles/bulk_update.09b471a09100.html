@@ -1,0 +1,10 @@
+{# djlint:off #}
+{% include "_base.html" %}
+{% block content %}
+    {% component_block "component_tabs" %}
+        {% fill "component_code" %}
+            {% component "table_bulk_update" %}
+        {% endfill %}
+    {% endcomponent_block "component_tabs" %}
+{% endblock content %}
+{# djlint:on #}

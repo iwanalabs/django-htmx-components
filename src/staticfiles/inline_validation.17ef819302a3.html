@@ -1,0 +1,10 @@
+{# djlint:off #}
+{% include "_base.html" %}
+{% block content %}
+    {% component_block "component_tabs" %}
+        {% fill "component_code" %}
+            {% component "form_inline_validation" %}
+        {% endfill %}
+    {% endcomponent_block "component_tabs" %}
+{% endblock content %}
+{# djlint:on #}

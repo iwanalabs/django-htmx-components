@@ -1,24 +1,22 @@
 PROJECT_DIR=$(shell pwd)
-PACKAGE_DIR=$(PROJECT_DIR)/src
+SRC_DIR=$(PROJECT_DIR)/src
 INPUT_DIR=$(PROJECT_DIR)/src/static/input
 OUTPUT_DIR=$(PROJECT_DIR)/src/static/output
 
-.PHONY: wheel
+run:
+	cd ${SRC_DIR} && poetry run python manage.py runserver 8000
 
-wheel:
-	poetry build --format wheel
-
-run-django:
-	cd ${PACKAGE_DIR} && poetry run python manage.py runserver 5000
-
-run-pyodide:
-	make wheel && python3 -m http.server
-
-clear-migrations:
-	rm ${PACKAGE_DIR}/db.sqlite3 && cd ${PACKAGE_DIR} && find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+generate-key:
+	poetry run python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 
 migrate:
-	cd ${PACKAGE_DIR} && poetry run python manage.py makemigrations && poetry run python manage.py migrate
+	cd ${SRC_DIR} && poetry run python manage.py makemigrations && poetry run python manage.py migrate
 
 tailwind:
 	npx tailwindcss -i $(INPUT_DIR)/style.css -o $(OUTPUT_DIR)/style.css --watch -c tailwind.config.js --minify
+
+collectstatic:
+	cd ${SRC_DIR} && poetry run python manage.py collectstatic
+
+redis:
+	docker run --rm --name redis-server -p 6379:6379 -v ${PROJECT_DIR}/tmp:/data redis

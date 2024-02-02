@@ -1,0 +1,29 @@
+#!/bin/bash
+
+NAME=APP_NAME
+DIR=PROJECT_DIR
+APP_DIR=$DIR/PROJECT_SUBDIR
+USER=ubuntu
+GROUP=ubuntu
+WORKERS=3
+DJANGO_SETTINGS_MODULE=config.settings
+DJANGO_WSGI_MODULE=config.wsgi
+VENV=$DIR/.venv/bin/activate
+BIND=unix:$DIR/run/gunicorn.sock
+LOG_LEVEL=error
+TIMEOUT=300
+
+cd $APP_DIR
+source $VENV
+
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
+
+exec gunicorn ${DJANGO_WSGI_MODULE}:application \
+  --name $NAME \
+  --workers $WORKERS \
+  --user=$USER \
+  --group=$GROUP \
+  --bind=$BIND \
+  --log-level=$LOG_LEVEL \
+  --log-file=- \
+  --timeout $TIMEOUT 

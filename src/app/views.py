@@ -1,9 +1,10 @@
-from django.shortcuts import redirect, render, resolve_url
+from django.shortcuts import render, resolve_url
+from django.views.decorators.cache import cache_page
 
-from src.app.models import Contact
-from src.app.utils import create_contacts, source_link
+from app.utils import source_link
 
 
+@cache_page(60 * 15)
 def index(request):
     components = [
         {"name": "Active Search", "url": resolve_url("active_search")},
@@ -18,13 +19,6 @@ def index(request):
         {"name": "Progress Bar", "url": resolve_url("progress_bar")},
     ]
     return render(request, "index.html", {"components": components})
-
-
-def reset_database(request):
-    Contact.objects.all().delete()
-    create_contacts(count=100)
-    # redirect to the same page
-    return redirect(request.META.get("HTTP_REFERER"))
 
 
 def inline_validation(request):
@@ -249,7 +243,3 @@ def cascading_selects(request):
             "full_code_url": source_link("components/cascading_selects"),
         },
     )
-
-
-def favicon(request):
-    return redirect("/static/favicon.ico", permanent=True)
