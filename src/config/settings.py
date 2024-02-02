@@ -38,8 +38,8 @@ SESSION_COOKIE_SECURE = env.bool("DJANGO_SESSION_COOKIE_SECURE", default=True)
 CSRF_COOKIE_SECURE = env.bool("DJANGO_CSRF_COOKIE_SECURE", default=True)
 SECURE_PROXY_SSL_HEADER: tuple[str, str] | None = ("HTTP_X_FORWARDED_PROTO", "https")
 
-ALLOWED_HOSTS = ["components.iwanalabs.com"]
-DOMAIN_URL = "https://components.iwanalabs.com"
+ALLOWED_HOSTS = ["dhc.iwanalabs.com"]
+DOMAIN_URL = "https://dhc.iwanalabs.com"
 
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
