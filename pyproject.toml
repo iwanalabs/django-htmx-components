@@ -12,7 +12,7 @@ python = "^3.10"
 Django = "^5.0.1"
 django-htmx = "^1.17.2"
 WebTest = "^3.0.0"
-django-components = { file = "./django_components-0.34.1-py3-none-any.whl" } # temporary until fix #290 is merged
+django-components = "0.34.1"
 django-environ = "^0.11.2"
 whitenoise = "^6.6.0"
 redis = "^5.0.1"

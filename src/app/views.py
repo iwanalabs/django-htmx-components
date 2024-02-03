@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.shortcuts import render, resolve_url
 from django.views.decorators.cache import cache_page
+from app.models import Contact
 
 from app.utils import source_link
 
@@ -137,12 +138,14 @@ def click_to_edit(request):
         {"name": "components/urls.py", "path": "urls.py", "lines": [15, 24]},
         {"name": "template/click_to_edit.html", "path": "click_to_edit.html"},
     ]
+    id = Contact.objects.first().id
 
     return render(
         request,
         "click_to_edit.html",
         {
             "files": files,
+            "first_available_id": id,
             "title": "Click to Edit",
             "description": "Inline editing of a Django model",
             "full_code_url": source_link("components/click_to_edit.py"),

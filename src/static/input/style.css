@@ -59,32 +59,32 @@
     @apply font-medium text-blue-600 dark:text-blue-500 hover:underline;
   }
 
-  .tr {
-    @apply bg-white border-b dark:bg-slate-800 dark:border-slate-700;
-  }
-
-  .td {
-    @apply px-6 py-4;
-  }
-
-  .td-tight {
-    @apply px-3 py-2;
-  }
-
   .form {
     @apply max-w-sm mx-auto max-w-sm mx-auto min-w-96;
   }
 
   .table {
-    @apply w-full text-sm text-left rtl:text-right text-slate-500 dark:text-slate-400;
+    @apply text-xs w-full sm:text-sm text-left rtl:text-right text-slate-500 dark:text-slate-400;
   }
 
   .thead {
     @apply text-xs text-slate-700 uppercase bg-slate-50 dark:bg-slate-700 dark:text-slate-400;
   }
 
+  .tr {
+    @apply bg-white border-b dark:bg-slate-800 dark:border-slate-700;
+  }
+
+  .td-tight {
+    @apply px-1 py-1 sm:px-3 sm:py-2;
+  }
+
+  .td {
+    @apply px-3 py-2 sm:px-6 sm:py-4;
+  }
+
   .th {
-    @apply px-6 py-3;
+    @apply px-3 py-1.5 sm:px-6 sm:py-3;
   }
 
   .checkbox {

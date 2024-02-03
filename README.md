@@ -1,8 +1,8 @@
 # Django HTMX Components
 
-This is a collection of components for [Django](https://www.djangoproject.com/) and [htmx](https://htmx.org/). They are designed to be copy-pasted into your project and customized to your needs.
+This is a collection of components for [Django](https://www.djangoproject.com/) and [htmx](https://htmx.org/). They are meant to be copy-pasted into your project and customized to your needs.
 
-They're designed to be as simple as possible, so you can easily understand how they work and modify them to your needs. They have very little styling, so you can easily customize them to match your site.
+They're designed to be as simple as possible, so you can easily understand how they work and modify them to your needs. They have very little styling, for the same reason.
 
 ## Installation
 
@@ -47,13 +47,17 @@ Contributions are welcome! Please open an issue or pull request if you have a co
    ```bash
    make tailwind
    ```
-4. Run the development server:
+4. Start redis:
    ```bash
-   make run-django
+   make redis
    ```
-5. Open http://localhost:8000/ in your browser.
-6. Make your changes and test them in your browser.
-7. Commit your changes and open a pull request.
+5. Run the development server:
+   ```bash
+   make run
+   ```
+6. Open http://localhost:8000/ in your browser.
+7. Make your changes and test them in your browser.
+8. Commit your changes and open a pull request.
 
 ## License
 
