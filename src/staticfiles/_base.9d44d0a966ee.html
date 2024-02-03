@@ -1,0 +1,46 @@
+{% load static %}
+{% load django_htmx %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Django HTMX Components">
+        <meta name="keywords" content="Django, HTMX, Components">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Django HTMX Components</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <link rel="stylesheet" href="{% static 'prism.css' %}">
+        <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+        {% block style %}
+        {% endblock style %}
+        {% component_css_dependencies %}
+    </head>
+    <body hx-headers='{"x-csrftoken": "{{ csrf_token }}"}'
+          class="antialiased bg-white dark:bg-gray-900 font-body">
+        <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+            <div class="max-w-screen-xl flex flex-col items-center justify-between mx-auto p-4">
+                <span class="flex flex-col items-center space-x-3 rtl:space-x-reverse">
+                    <a href="{% url 'index' %}">
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Django HTMX Components</span>
+                    </a>
+                    <a href="https://iwanalabs.com"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <span class="self-center text-xs text-slate-600 whitespace-nowrap dark:text-white">Made with 🦎 by Iwana Labs</span>
+                    </a>
+                </span>
+            </div>
+        </nav>
+        {% block content %}
+        {% endblock content %}
+        <script src="{% static 'htmx.min.js' %}"></script>
+        <script src="{% static 'sse.js' %}"></script>
+        <script src="{% static 'ws.js' %}"></script>
+        <script src="{% static 'prism.js' %}"></script>
+        <script src="{% static 'flowbite.min.js' %}"></script>
+        {% django_htmx_script %}
+        {% block javascript %}
+        {% endblock javascript %}
+        {% component_js_dependencies %}
+    </body>
+</html>

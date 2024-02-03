@@ -1,4 +1,4 @@
-from src.app.models import Contact, Brand, CarModel
+from app.models import Contact, Brand, CarModel
 
 contacts_list = [
     {
@@ -783,6 +783,10 @@ car_models_list = {
 
 def source_link(link):
     return "https://github.com/iwanalabs/django-htmx-components/blob/main/src/" + link
+
+
+def delete_contacts():
+    Contact.objects.all().delete()
 
 
 def create_contacts(contacts=contacts_list, count=None):

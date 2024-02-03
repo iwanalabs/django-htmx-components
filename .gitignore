@@ -144,3 +144,8 @@ dmypy.json
 cython_debug/
 node_modules/
 .DS_Store
+
+db.sqlite3-shm
+db.sqlite3-wal
+
+tmp/

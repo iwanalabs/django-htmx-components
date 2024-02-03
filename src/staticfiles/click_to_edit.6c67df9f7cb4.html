@@ -1,0 +1,10 @@
+{# djlint:off #}
+{% include "_base.html" %}
+{% block content %}
+    {% component_block "component_tabs" %}
+        {% fill "component_code" %}
+            {% component "click_to_edit" id=1 %}
+        {% endfill %}
+    {% endcomponent_block "component_tabs" %}
+{% endblock content %}
+{# djlint:on #}

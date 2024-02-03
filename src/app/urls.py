@@ -1,6 +1,6 @@
 from django.urls import path
 
-from src.app import views
+from app import views
 
 urlpatterns = [
     path("", views.index, name="index"),
@@ -14,5 +14,4 @@ urlpatterns = [
     path("infinite_scroll/", views.infinite_scroll, name="infinite_scroll"),
     path("inline_validation/", views.inline_validation, name="inline_validation"),
     path("progress_bar/", views.progress_bar, name="progress_bar"),
-    path("reset_database/", views.reset_database, name="reset_data"),
 ]

@@ -51,11 +51,8 @@ Contributions are welcome! Please open an issue or pull request if you have a co
    ```bash
    make run-django
    ```
-5. Open http://localhost:5000/ in your browser.
-6. Once you're happy with your changes, test that it works within Pyodide:
-   ```bash
-   make run-pyodide
-   ```
+5. Open http://localhost:8000/ in your browser.
+6. Make your changes and test them in your browser.
 7. Commit your changes and open a pull request.
 
 ## License
