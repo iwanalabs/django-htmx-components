@@ -25,7 +25,7 @@ They're designed to be as simple as possible, so you can easily understand how t
        from django.urls import path
        from components.mycomponent import MyComponent
        urlpatterns = [
-           path('mycomponent/', MyCompponent.as_view()),
+           path('mycomponent/', MyComponent.as_view()),
        ]
    ```
    It will handle requests to `/components/mycomponent/` and render the component.
