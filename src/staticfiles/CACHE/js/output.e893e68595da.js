@@ -1,2 +1,0 @@
-function editClick(e){let editing=document.querySelector(".editing");if(editing){let changeRow=confirm("Hey!  You are already editing a row!  Do you want to cancel that edit and continue?");if(changeRow){htmx.trigger(editing,"cancel");}else{return;}
-htmx.trigger(e,"edit");}else{htmx.trigger(e,"edit");}};

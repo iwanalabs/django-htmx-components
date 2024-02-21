@@ -1,5 +1,4 @@
 {% load static %}
-{% load compress %}
 {% load django_htmx %}
 <!DOCTYPE html>
 <html lang="en">
@@ -9,17 +8,14 @@
         <meta name="keywords" content="Django, HTMX, Components">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Django HTMX Components</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <link rel="stylesheet" href="{% static 'prism.css' %}">
         <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
-        {% compress css %}
-            <link rel="stylesheet" href="{% static 'style.css' %}">
-            <link rel="stylesheet" href="{% static 'prism.css' %}">
-            {% component_css_dependencies %}
-            {% block style %}
-            {% endblock style %}
-        {% endcompress %}
+        {% block style %}
+        {% endblock style %}
+        {% component_css_dependencies %}
     </head>
     <body hx-headers='{"x-csrftoken": "{{ csrf_token }}"}'
-          hx-ext="preload"
           class="antialiased bg-white dark:bg-gray-900 font-body">
         <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
             <div class="max-w-screen-xl flex flex-col items-center justify-between mx-auto p-4">
@@ -37,18 +33,15 @@
         </nav>
         {% block content %}
         {% endblock content %}
-        {% compress js %}
-            <script src="{% static 'htmx.min.js' %}"></script>
-            <script src="{% static 'sse.js' %}"></script>
-            <script src="{% static 'ws.js' %}"></script>
-            <script src="{% static 'preload.js' %}"></script>
-            <script src="{% static 'prism.js' %}"></script>
-            <script src="{% static 'flowbite.min.js' %}"></script>
-            {% django_htmx_script %}
-            {% block javascript %}
-            {% endblock javascript %}
-            {% component_js_dependencies %}
-        {% endcompress %}
+        <script src="{% static 'htmx.min.js' %}"></script>
+        <script src="{% static 'sse.js' %}"></script>
+        <script src="{% static 'ws.js' %}"></script>
+        <script src="{% static 'prism.js' %}"></script>
+        <script src="{% static 'flowbite.min.js' %}"></script>
+        {% django_htmx_script %}
+        {% block javascript %}
+        {% endblock javascript %}
+        {% component_js_dependencies %}
         <script src="https://cdn.usefathom.com/script.js" data-site="YPOOWREF" defer></script>
     </body>
 </html>

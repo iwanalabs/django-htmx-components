@@ -18,9 +18,6 @@ tailwind:
 collectstatic:
 	cd ${SRC_DIR} && poetry run python manage.py collectstatic
 
-compress:
-	cd ${SRC_DIR} && poetry run python manage.py compress --force
-
 redis:
 	docker run --rm --name redis-server -p 6379:6379 -v ${PROJECT_DIR}/tmp:/data redis
 

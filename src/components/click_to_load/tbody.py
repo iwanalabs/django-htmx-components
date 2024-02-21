@@ -21,8 +21,7 @@ class TBodyClickToLoadComponent(component.Component):
                             class='btn-primary' 
                             hx-get="{% url 'tbody_click_to_load' page=page_obj.next_page_number %}"
                             hx-target="#replaceMe"
-                            hx-swap="outerHTML"
-                            preload>
+                            hx-swap="outerHTML">
                             Load more
                         </button>
                     </td>

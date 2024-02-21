@@ -51,7 +51,7 @@ class ClickToEditComponent(component.Component):
                 <label class="label">Email Address</label>
                 <input class="disabled-input" type="email" value="{{ email }}" disabled>
             </div>
-            <button class="btn-primary" hx-get="{% url 'contact_edit' id=id %}" preload>Edit contact</button>
+            <button class="btn-primary" hx-get="{% url 'contact_edit' id=id %}">Edit contact</button>
         </div>
         {% endif %}
     """
