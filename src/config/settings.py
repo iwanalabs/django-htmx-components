@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "whitenoise.runserver_nostatic",
+    "compressor",
     "django.contrib.staticfiles",
     "django_components",
     "django_htmx",
@@ -162,12 +163,18 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # whitenoise config
+STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [
     BASE_DIR / "components",
     BASE_DIR / "static/output",
     BASE_DIR / "templates",
 ]
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
+)
+
 STORAGES = {
     "default": {
         "BACKEND": "example.storages.ExtendedFileSystemStorage",
@@ -188,3 +195,5 @@ CACHES = {
         },
     }
 }
+
+COMPRESS_OFFLINE = True
