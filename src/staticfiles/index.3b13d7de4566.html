@@ -1,0 +1,83 @@
+{% include "_base.html" %}
+{% block style %}
+{% endblock style %}
+{% block content %}
+    <header>
+        <div>
+            <div class="flex flex-col items-center lg:items-start lg:flex-row lg:justify-between min-h-screen">
+                <div class="w-full px-8 py-12 lg:py-8  md:w-1/2">
+                    <article class="mt-20 format lg:format-lg">
+                        <h2>What</h2>
+                        <p>
+                            This is a collection of components for <a href="https://www.djangoproject.com/"
+    target="_blank"
+    rel="noopener noreferrer">Django</a> and <a href="https://htmx.org/" target="_blank" rel="noopener noreferrer">htmx</a>. They are designed to be copy-pasted into your project and customized to your needs.
+                        </p>
+                        <p>
+                            They feature minimal styling and barebones functionality. They are meant to be a starting point for your own components or a reference.
+                        </p>
+                        <h3>List of components</h3>
+                        <p>These are the components we've created so far:</p>
+                        <ul>
+                            {% for component in components %}
+                                <li>
+                                    <a href="{{ component.url }}">{{ component.name }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <h3>Contributing</h3>
+                        <p>
+                            We'd love to see your components here! If you have a component you'd like to share, please go to <a href="https://github.com/iwanalabs/django-htmx-components">our GitHub repository</a> and open a pull request.
+                        </p>
+                    </article>
+                </div>
+                <div class="w-full px-8 py-12 lg:py-8 lg:w-1/2 bg-slate-100">
+                    <article class="mt-20 format lg:format-lg">
+                        <h2>How</h2>
+                        <p>
+                            It's easy! Just copy and paste these components into your project. They serve as a starting point for your own components or as a reference.
+                        </p>
+                        <p>To use them, you first need to install some dependencies.  Here's how to do it:</p>
+                        <ol>
+                            <li>
+                                Install <a href="https://www.djangoproject.com/"
+    target="_blank"
+    rel="noopener noreferrer">Django</a> and <a href="https://htmx.org/" target="_blank" rel="noopener noreferrer">htmx</a>.
+                            </li>
+                            <li>
+                                Install and set up <a href="https://github.com/EmilStenstrom/django-components/"
+    rel="noopener noreferrer"
+    target="_blank">django-components</a>.
+                            </li>
+                            <li>
+                                Create a <code>urls.py</code> file in <code>components/</code> and add the following code:
+                                <pre class="language-python"><code class="language-python">
+                                    from django.urls import path 
+                                    urlpatterns = []
+                                </code></pre>
+                                Then import this file in your project's <code>urls.py</code> file:
+                                <pre class="language-python"><code class="language-python">
+                                    from django.urls import path, include
+                                    urlpatterns = [
+                                        path('components/', include('components.urls')),
+                                    ]
+                                </code></pre>
+                                This step simplifies adding URL patterns for your components and keeps them separate from your project's URL patterns.
+                                Then, adding a single-file component to your <code>components/urls.py</code> file is as easy as:
+                                <pre class="language-python"><code class="language-python">
+                                    from django.urls import path
+                                    from components.mycomponent import MyComponent 
+                                    urlpatterns = [
+                                        path('mycomponent/', MyComponent.as_view()),
+                                    ]
+                                </code></pre>
+                                It will handle requests to <code>/components/mycomponent/</code> and render the component.
+                            </li>
+                            <li>That's all! You can now use the component in your templates. Check out the examples to get started.</li>
+                        </ol>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock content %}
