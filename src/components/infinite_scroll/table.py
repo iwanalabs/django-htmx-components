@@ -18,7 +18,7 @@ class TableInfiniteScrollComponent(component.Component):
                 </tr>
             </thead>
             <tbody id="tbody">
-                {% component "tbody_infinite_scroll" page_obj=page_obj only %}
+                {% component "tbody_infinite_scroll" page_obj=page_obj only %}{% endcomponent %}
             </tbody>
         </table>
         <img id="busy-indicator"

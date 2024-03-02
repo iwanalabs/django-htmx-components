@@ -17,7 +17,7 @@ class TableClickToLoadComponent(component.Component):
                 </tr>
             </thead>
             <tbody id="tbody">
-                {% component "tbody_click_to_load" page_obj=page_obj only %}
+                {% component "tbody_click_to_load" page_obj=page_obj only %}{% endcomponent %}
             </tbody>
         </table>
     """

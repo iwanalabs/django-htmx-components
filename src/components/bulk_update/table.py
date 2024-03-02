@@ -19,7 +19,7 @@ class TableBulkUpdateComponent(component.Component):
                     </tr>
                 </thead>
                 <tbody id="tbody">
-                    {% component "tbody_bulk_update" contacts=contacts only %}
+                    {% component "tbody_bulk_update" contacts=contacts only %}{% endcomponent %}
                 </tbody>
             </table>
         </form>

@@ -18,7 +18,7 @@ class ParentSelectCascadingSelectsComponent(component.Component):
         <div class="mt-2">
             <label class="label">Model</label>
             <select id="models" name="model" class="input">
-                {% component "select_cascading_selects" brand=brands.0.id %}
+                {% component "select_cascading_selects" brand=brands.0.id %}{% endcomponent %}
             </select>
         </div>
     """

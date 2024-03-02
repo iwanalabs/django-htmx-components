@@ -1,10 +1,10 @@
 {# djlint:off #}
 {% include "_base.html" %}
 {% block content %}
-    {% component_block "component_tabs" %}
+    {% component "component_tabs" %}
         {% fill "component_code" %}
-            {% component "parent_select_cascading_selects" %}
+            {% component "parent_select_cascading_selects" %}{% endcomponent %}
         {% endfill %}
-    {% endcomponent_block "component_tabs" %}
+    {% endcomponent %}
 {% endblock content %}
 {# djlint:on #}

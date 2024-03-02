@@ -589,13 +589,13 @@ bcrypt = ["bcrypt"]
 
 [[package]]
 name = "django-components"
-version = "0.34.1"
+version = "0.50"
 description = "A way to create simple reusable template components in Django."
 optional = false
 python-versions = "*"
 files = [
-    {file = "django_components-0.34.1-py3-none-any.whl", hash = "sha256:6f8f180e480b4055db414c60eb2c618f83742a1f70833d3da4afa637f46668f4"},
-    {file = "django_components-0.34.1.tar.gz", hash = "sha256:a3d47bc9e6f94163e03c0b07e41af3ccebe214d92833bbafd57a3105ced81ec2"},
+    {file = "django_components-0.50-py3-none-any.whl", hash = "sha256:08365e10f05903c573d216e799a957b53ec61d8c961629b74c09fe1d021c86ca"},
+    {file = "django_components-0.50.tar.gz", hash = "sha256:b856d0873de19d02621d9f2b9d79f22c9655b2c67754ec14a8b7ff4a7905a6ee"},
 ]
 
 [package.dependencies]
@@ -2635,4 +2635,4 @@ brotli = ["Brotli"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "9b892fe785399a617d39b1f3d235edc0e495b3eaa9f368763bc8a22272e8f6d2"
+content-hash = "ff200d19396f2447096794005b9387729a16a18cca77f5560ae9da73deee9fb5"

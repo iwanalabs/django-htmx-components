@@ -18,7 +18,7 @@ class TableEditRowComponent(component.Component):
             </thead>
             <tbody id="tbody" hx-target="closest tr" hx-swap="outerHTML">
                 {% for contact in contacts %}
-                    {% component "row_edit_row" contact=contact only %}
+                    {% component "row_edit_row" contact=contact only %}{% endcomponent %}
                 {% endfor %}
             </tbody>
         </table>
