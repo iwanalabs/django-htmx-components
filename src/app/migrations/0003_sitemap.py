@@ -4,7 +4,7 @@ from django.contrib.sites.models import Site
 
 def create_site(apps, schema_editor):
     Site.objects.all().delete()
-    Site.objects.create(domain="iwanalabs.com", name="Iwana Labs")
+    Site.objects.create(domain="dhc.iwanalabs.com", name="Iwana Labs")
 
 
 class Migration(migrations.Migration):

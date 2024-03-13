@@ -34,5 +34,5 @@ urlpatterns = [
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
-    path("admin/", admin.site.urls),
+    # path("admin/", admin.site.urls),
 ]
