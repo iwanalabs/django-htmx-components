@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_components",
     "django_htmx",
+    "django.contrib.sites",
+    "django.contrib.sitemaps",
     "app",
 ]
 
@@ -188,3 +190,5 @@ CACHES = {
         },
     }
 }
+
+SITE_ID = 2
