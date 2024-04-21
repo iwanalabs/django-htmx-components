@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", function () {
+function updateTabs() {
+  Prism.highlightAll();
   const tabsSelect = document.getElementById("tabs");
   const contentTabs = document.getElementsByClassName("tab-content");
 
@@ -8,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let tabOption = document.getElementById(tabsSelect.value);
   let tabContent = document.getElementById(tabOption.dataset.target);
+  console.log(tabContent);
   tabContent.classList.remove("hidden");
 
   tabsSelect.addEventListener("change", function (event) {
@@ -20,4 +22,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     tabContent.classList.remove("hidden");
   });
+}
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  if (window.location.pathname !== "/") {
+    updateTabs();
+  }
+});
+
+document.addEventListener("htmx:afterSwap", function (event) {
+  if (event.detail.target.id == "header" && window.location.pathname !== "/") {
+    updateTabs();
+  }
 });

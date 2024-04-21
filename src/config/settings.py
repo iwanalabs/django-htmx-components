@@ -56,10 +56,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
+    # 3rd party
     "django_components",
     "django_htmx",
     "django.contrib.sites",
     "django.contrib.sitemaps",
+    # local
     "app",
 ]
 

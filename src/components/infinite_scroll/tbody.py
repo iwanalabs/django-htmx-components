@@ -13,6 +13,7 @@ class TBodyInfiniteScrollComponent(component.Component):
                 hx-get="{% url 'tbody_infinite_scroll' page=page_obj.next_page_number %}"
                 hx-trigger="revealed"
                 hx-swap="afterend"
+                hx-target="this"
             {% endif %}
             > 
                 <td class="td">{{ contact.id }}</td>

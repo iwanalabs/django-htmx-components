@@ -14,7 +14,7 @@ class StatusProgressBarComponent(component.Component):
                     Complete
                 {% endif %}
             </h3>
-            {% component "bar_progress_bar" id=job.id done=done %}{% endcomponent %}{% endcomponent %}{% endcomponent %}{% endcomponent %}{% endcomponent %}
+            {% component "bar_progress_bar" id=job.id done=done %}{% endcomponent %}
         </div>
         {% if done %}
             <button id="restart-btn" class="btn-primary" hx-post="{% url 'start_progress_bar' %}" classes="add show:600ms">
