@@ -1,12 +1,9 @@
-from django.conf import settings
 from django.shortcuts import render, resolve_url
-from django.views.decorators.cache import cache_page
-from app.models import Contact
 
+from app.models import Contact
 from app.utils import source_link
 
 
-@cache_page(60 * 15 if not settings.DEBUG else 0)
 def index(request):
     components = [
         {"name": "Active Search", "url": resolve_url("active_search")},

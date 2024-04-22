@@ -182,14 +182,14 @@ STORAGES = {
 }
 
 # cache settings
-CACHE_REDIS_URL = env("CACHE_REDIS_URL")
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": CACHE_REDIS_URL,
-        "OPTIONS": {
-            "db": 1,
-        },
-    }
-}
+# CACHE_REDIS_URL = env("CACHE_REDIS_URL")
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django.core.cache.backends.redis.RedisCache",
+#         "LOCATION": CACHE_REDIS_URL,
+#         "OPTIONS": {
+#             "db": 1,
+#         },
+#     }
+# }
 SITE_ID = 1
