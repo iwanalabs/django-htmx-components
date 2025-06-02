@@ -7,7 +7,7 @@ They're designed to be as simple as possible, so you can easily understand how t
 ## Installation
 
 1. Install [Django](https://www.djangoproject.com/) and [htmx](https://htmx.org/).
-2. Install and set up [django-compoenents](https://github.com/EmilStenstrom/django-components)
+2. Install and set up [django-components](https://github.com/EmilStenstrom/django-components)
 3. Create a `urls.py` file in `components/` and add the following code:
    ```python
        from django.urls import path
